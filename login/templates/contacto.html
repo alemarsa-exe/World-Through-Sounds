@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{ % static 'login/style.css' % }">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;1,100;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Drum Game</title>
+</head>
+<body>
+    <!---Sub-header-->
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"> <img src="images/DrumLogoBlanco.png" alt="drum-logo"> </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i> 
+                <ul>
+                    <li><a href="descarga.html">DESCARGA</a></li>
+                    <li><a href="login.html">INICIAR SESIÓN</a></li>
+                    <li><a href="leaderboards.html">LEADERBOARD</a></li>
+                    <li><a href="https://daniumm.github.io/" target="_blank">NUESTRA API</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Contacto</h1>
+    </section>
+
+    <!--Mapa-->
+
+   <section class="location">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.9664177685386!2d-99.13845818497299!3d19.283826550417746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01059b077ca1%3A0x129534395a02e72a!2sTecnol%C3%B3gico%20de%20Monterrey%2C%20Campus%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1647491552723!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+   </section> 
+
+    <!--Forma de contacto-->
+    <section class="contact-us">
+        <div class="row">
+            <div class="contact-col">
+                <div>
+                    <i class="fa fa-home"></i>
+                    <span>
+                        <h5>Calle XYZ, Tecnológico de Monterrey</h5>
+                        <p>Tlalpan, Ciudad de México, MX</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <span>
+                        <h5>+52 1 12 3456 7890</h5>
+                        <p>Lunes a Sábado de 9AM a 7PM</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-envelope-o"></i>
+                    <span>
+                        <h5>info@drumgame.mx</h5>
+                        <p>¡Mándanos tu duda!</p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="contact-col">
+                <form action="form-handler.php" method="post">
+                    <input type="text" name="name" placeholder="Escribe tu nombre" required>
+                    <input type="email" name="email" placeholder="Escribe tu correo electrónico" required>
+                    <input type="text" name="subject" placeholder="Escribe el asunto" required>
+                    <textarea rows="8" name="message" placeholder="Mensaje..." required></textarea>
+                    <button type="submit" class="descarga-inline blue-btn">Enviar mensaje</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+    
+    <!--Footer--->
+    <section class="footer">
+        <h4>Sobre nosotros</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id ducimus quidem labore? Praesentium blanditiis <br>minus quod enim eius magni deleniti laborum perferendis ratione, est rerum eaque incidunt nostrum maxime, eos nihil soluta quasi, id itaque?</p>
+        <div class="icons">
+            <a href="https://github.com/alemarsa-exe/Drum-Game-WebPage" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+        <p>Hecho con <i class="fa fa-heart-o"></i> por el equipo de desarrollo</p>
+    </section>
+
+<!------JavaScript para activar menu------>
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+</script>
+
+</body>
+</html>

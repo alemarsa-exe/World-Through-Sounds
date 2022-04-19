@@ -73,4 +73,26 @@ def change(request):
     else:
         return HttpResponse("Hello, world. You're at the Change index.")
 
-   
+@csrf_exempt
+def contacto(request):
+    return render(request, 'contacto.html')
+
+@csrf_exempt
+def descarga(request):
+    return render(request, 'descarga.html')
+
+@csrf_exempt
+def index(request):
+    return render(request, 'index.html')
+
+@csrf_exempt
+def leaderboards(request):
+    return render(request, 'leaderboards.html')
+    
+@csrf_exempt
+def login(request):
+    return render(request, 'Login.html')
+
+@csrf_exempt
+def signup(request):
+    return render(request, 'Signup.html')
