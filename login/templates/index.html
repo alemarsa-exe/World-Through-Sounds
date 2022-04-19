@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;1,100;1,600&display=swap" rel="stylesheet">
@@ -14,15 +16,15 @@
     <!---Header-->
     <section class="header">
         <nav>
-            <a href="index.html"> <img src="images/DrumLogoBlanco.png" alt="drum-logo"> </a>
+            <a href=""> <img src="{% static 'images/DrumLogoBlanco.png' %}" alt="drum-logo"> </a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" id="times" onclick="hideMenu()"></i> 
                 <ul>
-                    <li><a href="descarga.html">DESCARGA</a></li>
-                    <li><a href="Login.html">INICIAR SESIÓN</a></li>
-                    <li><a href="leaderboards.html">LEADERBOARD</a></li>
+                    <li><a href="../descarga">DESCARGA</a></li>
+                    <li><a href="../login">INICIAR SESIÓN</a></li>
+                    <li><a href="../leaderboards">LEADERBOARD</a></li>
                     <li><a href="https://daniumm.github.io/" target="_blank">NUESTRA API</a></li>
-                    <li><a href="contacto.html">CONTACTO</a></li>
+                    <li><a href="../contacto">CONTACTO</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars" id="bars" onclick="showMenu()"></i>

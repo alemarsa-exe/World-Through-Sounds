@@ -11,6 +11,6 @@ urlpatterns = [
     path('index/', views.index, name = 'index'),
     path('leaderboards/', views.leaderboards, name = 'leaderboards'),
     path('login/', views.login, name = 'login'),
-    path('signup/', views.signUp, name = 'signup'),
+    path('signupnow/', views.signup, name = 'signup'),
 
 ]
