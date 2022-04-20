@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+        {% csrf_token %}
         <form id="signupForm" action="../signupuser/" method="post">
             <div class="form-content">
                 <div class="login-form">
@@ -76,7 +77,11 @@
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Escribe tu contraseña" required>
+                            <input type="password" name="password1" placeholder="Escribe tu contraseña" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password2" placeholder="Reescribe tu contraseña" required>
                         </div>
                         <div class="button input-box">
                             <input type="submit" value="Registrarse">
