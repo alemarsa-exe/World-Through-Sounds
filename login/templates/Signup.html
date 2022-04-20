@@ -17,14 +17,14 @@
     <!---Sub-header --->
     <section class="sub-header-sesion">
         <nav>
-            <a href="index.html"> <img src="images/DrumLogoBlanco.png" alt="drum-logo"> </a>
+            <a href="../index"> <img src="{% static 'images/DrumLogoBlanco.png' %}" alt="drum-logo"> </a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i> 
                 <ul>
-                    <li><a href="descarga.html">DESCARGA</a></li>
-                    <li><a href="leaderboards.html">LEADERBOARD</a></li>
+                    <li><a href="../descarga">DESCARGA</a></li>
+                    <li><a href="../leaderboards">LEADERBOARD</a></li>
                     <li><a href="https://daniumm.github.io/" target="_blank">NUESTRA API</a></li>
-                    <li><a href="contacto.html">CONTACTO</a></li>
+                    <li><a href="../contacto">CONTACTO</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -36,7 +36,7 @@
         <div class="container-login">
         <div class="cover-1">
             <div class="front">
-                <img src="images/baterista-blanco-y-negro.jpg" alt="drummer">
+                <img src="{% static 'images/baterista-blanco-y-negro.jpg' %}" alt="drummer">
                 <div class="text">
                     <span class="text-1">Empieza tu viaje ahora mismo</span>
                     <span class="text-2">Registrate ahora</span>
@@ -81,7 +81,7 @@
                         <div class="button input-box">
                             <input type="submit" value="Registrarse">
                         </div>
-                        <div class="text sign-up-text">¿Ya estás registrado? <a href="Login.html">Inicia sesión</a></div>
+                        <div class="text sign-up-text">¿Ya estás registrado? <a href="../login">Inicia sesión</a></div>
                     </div>
                 </div>
             </div>
