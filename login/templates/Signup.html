@@ -43,18 +43,18 @@
                 </div>
             </div>
         </div>
-        <form action="#">
+        <form id="signupForm" action="../signupuser/" method="post">
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Iniciar sesión</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-envelope"></i>
-                            <input type="text" placeholder="Escribe tu email" required>
+                            <input type="text" placeholder="Escribe tu email" >
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Escribe tu contraseña" required>
+                            <input type="password" placeholder="Escribe tu contraseña" >
                         </div>
                         <div class="text"><a href="#">¿Olvidaste tu contraseña?</a></div>
                         <div class="button input-box">
@@ -68,15 +68,15 @@
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Escribe tu usuario" required>
+                            <input type="text" name="username" placeholder="Escribe tu usuario" required>
                         </div>
                         <div class="input-box">
                             <i class="fas fa-envelope"></i>
-                            <input type="text" placeholder="Escribe tu email" required>
+                            <input type="text" name="email" placeholder="Escribe tu email" required>
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Escribe tu contraseña" required>
+                            <input type="password" name="password" placeholder="Escribe tu contraseña" required>
                         </div>
                         <div class="button input-box">
                             <input type="submit" value="Registrarse">

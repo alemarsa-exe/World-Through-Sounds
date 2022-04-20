@@ -3,10 +3,14 @@ from django.contrib.auth.models import User
 from django import forms
 
 class RegisterUserForm(UserCreationForm):
-    userId = forms.IntegerField()
-    name = forms.CharField(max_length=50)
-    role = forms.CharField(max_length=10)
+    email = forms.EmailField(required=True)
+    username = forms.CharField(max_length=50, required=True)
+    password = forms.CharField(max_length=10, required=True)
+
+    def __init__(self, *args, **kwargs):
+        super(RegisterUserForm, self).__init__(*args, **kwargs)
+        self.fields.pop('password2')
     
     class Meta:
         model = User
-        fields = ('userId', 'role', 'name', 'password1', 'password2') 
+        fields = ('username', 'email', 'password') 

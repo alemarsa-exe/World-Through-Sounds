@@ -2,8 +2,8 @@ import json
 from django.http import JsonResponse, QueryDict, StreamingHttpResponse, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render
-
+from django.shortcuts import redirect, render
+from django.contrib import messages
 from login.models import User
 from .forms import RegisterUserForm
 
@@ -34,10 +34,7 @@ def index(request):
 
 @csrf_exempt
 def signUp(request):
-    if request.method == 'POST':
-        print((request.body).decode())
-        #return HttpResponse("Lo lograste")
-        '''        
+    if request.method == 'POST':   
         strJson = (request.body).decode()
         jsonUser = json.loads(strJson)
         user = User(userId=jsonUser['userId'], role = jsonUser['role'], username=jsonUser['username'], password = jsonUser['password1'])
@@ -51,7 +48,6 @@ def signUp(request):
             print("User already Exists")
             jsonUser = {"userId":0,"role":"","username":"Error","pswd":""}
             return JsonResponse(jsonUser)
-        '''
     else:
         return HttpResponse("Hello, world. You're at the Sign Up index.")
 
@@ -93,10 +89,45 @@ def leaderboards(request):
     return render(request, 'leaderboards.html')
     
 @csrf_exempt
-def login(request):
-    return render(request, 'Login.html')
+def loginUser(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('leaderboards')
+        else:
+            messages.error(request, ('Bad login'))
+            print("User does not exist")
+            return redirect('Login')   
+    else:
+        return render(request, 'login.html', {})
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, ('Logged out'))
+    return redirect('Login')
     
 
 @csrf_exempt
-def signup(request):
+def signupUser(request):
+    if request.method == 'POST':
+        print(request.POST)
+        form = RegisterUserForm(request.POST)
+        print(form)
+        if form.is_valid():
+            print("Is valid")
+            user = form.save()
+            user.refresh_from_db()  
+            # load the profile instance created by the signal
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+
+            # login user after signing up
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+
+            # redirect user to home page
+            return redirect('home')
     return render(request, 'Signup.html')
