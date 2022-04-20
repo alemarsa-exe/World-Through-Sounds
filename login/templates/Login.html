@@ -51,18 +51,18 @@
                     </div>
                 </div>
             </div>
-            <form action="#">
+            <form action="signup/" method="post">
                 <div class="form-content">
                     <div class="login-form">
                         <div class="title">Iniciar sesión</div>
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Escribe tu email" required>
+                                <input type="text" placeholder="Escribe tu usuario" name="username" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Escribe tu contraseña" required>
+                                <input type="password" placeholder="Escribe tu contraseña" name="password" required>
                             </div>
                             <div class="button input-box">
                                 <input type="submit" value="Iniciar sesión">
@@ -75,15 +75,15 @@
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Escribe tu usuario" required>
+                                <input type="text" placeholder="Escribe tu usuario">
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Escribe tu email" required>
+                                <input type="text" placeholder="Escribe tu email">
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Escribe tu contraseña" required>
+                                <input type="password" placeholder="Escribe tu contraseña">
                             </div>
                             <div class="button input-box">
                                 <input type="submit" value="Registrarse">
@@ -111,6 +111,9 @@
     function hideMenu(){
         navLinks.style.right = "-200px";
     }
+
+    
+
 </script>
 
 </body>

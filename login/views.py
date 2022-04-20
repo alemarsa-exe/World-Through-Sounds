@@ -35,7 +35,9 @@ def index(request):
 @csrf_exempt
 def signUp(request):
     if request.method == 'POST':
-
+        print((request.body).decode())
+        #return HttpResponse("Lo lograste")
+        '''        
         strJson = (request.body).decode()
         jsonUser = json.loads(strJson)
         user = User(userId=jsonUser['userId'], role = jsonUser['role'], username=jsonUser['username'], password = jsonUser['password1'])
@@ -49,6 +51,7 @@ def signUp(request):
             print("User already Exists")
             jsonUser = {"userId":0,"role":"","username":"Error","pswd":""}
             return JsonResponse(jsonUser)
+        '''
     else:
         return HttpResponse("Hello, world. You're at the Sign Up index.")
 
@@ -92,6 +95,7 @@ def leaderboards(request):
 @csrf_exempt
 def login(request):
     return render(request, 'Login.html')
+    
 
 @csrf_exempt
 def signup(request):
