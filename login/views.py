@@ -100,9 +100,9 @@ def loginUser(request):
         else:
             messages.error(request, ('Bad login'))
             print("User does not exist")
-            return redirect('Login')   
+            return redirect('login')   
     else:
-        return render(request, 'login.html', {})
+        return render(request, 'Login.html', {})
 
 def logout_user(request):
     logout(request)
@@ -113,21 +113,30 @@ def logout_user(request):
 @csrf_exempt
 def signupUser(request):
     if request.method == 'POST':
-        print(request.POST)
+        #print(request.POST)
         form = RegisterUserForm(request.POST)
-        print(form)
+        #print(form)
         if form.is_valid():
-            print("Is valid")
-            user = form.save()
-            user.refresh_from_db()  
+            print("Is valid")   
+            #user = form.save()
+            #user.refresh_from_db()
             # load the profile instance created by the signal
-            user.save()
-            raw_password = form.cleaned_data.get('password1')
+            #user.save()
+            #raw_password = form.cleaned_data.get('password1')
 
             # login user after signing up
-            user = authenticate(username=user.username, password=raw_password)
-            login(request, user)
+            #user = authenticate(username=user.username, password=raw_password)
+            #login(request, user)
 
-            # redirect user to home page
-            return redirect('home')
-    return render(request, 'Signup.html')
+            # redirect user to home page'''
+
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request,user)
+            messages.success(request, ('Registration seccessful'))
+
+            return redirect('index')
+    else:
+        return render(request, 'Signup.html')   
