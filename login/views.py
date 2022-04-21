@@ -116,20 +116,8 @@ def signupUser(request):
         #print(request.POST)
         form = RegisterUserForm(request.POST)
         #print(form)
+        #print(form.is_valid())
         if form.is_valid():
-            print("Is valid")   
-            #user = form.save()
-            #user.refresh_from_db()
-            # load the profile instance created by the signal
-            #user.save()
-            #raw_password = form.cleaned_data.get('password1')
-
-            # login user after signing up
-            #user = authenticate(username=user.username, password=raw_password)
-            #login(request, user)
-
-            # redirect user to home page'''
-
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
@@ -138,5 +126,8 @@ def signupUser(request):
             messages.success(request, ('Registration seccessful'))
 
             return redirect('index')
+        else:
+            print(form.errors)
+            return render(request, 'Signup.html', {'form': form})   
     else:
         return render(request, 'Signup.html')   
