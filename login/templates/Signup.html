@@ -46,28 +46,17 @@
                     </div>
                 </div>
             </div>
-            {% csrf_token %}
+            
+
             <form id="signupForm" action="../signupuser/" method="post">
                 <div class="form-content">
                     <div class="login-form">
-                        <div class="title">Iniciar sesión</div>
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Escribe tu email">
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Escribe tu contraseña">
-                            </div>
-                            <div class="text"><a href="#">¿Olvidaste tu contraseña?</a></div>
-                            <div class="button input-box">
-                                <input type="submit" value="Iniciar sesión">
-                            </div>
-                            <div class="text login-text">¿No estás registrado? <label for="flip">Regístrate
-                                    ahora</label></div>
-                        </div>
+                        
                     </div>
+
+
+                    <!--Signup-->
+                    {% csrf_token %}
                     <div class="signup-form">
                         <div class="title">Registrarse</div>
                         {% if form.errors %}

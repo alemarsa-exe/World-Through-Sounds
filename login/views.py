@@ -9,7 +9,7 @@ from .forms import RegisterUserForm
 
 
 @csrf_exempt
-def index(request):
+def indexBad(request):
     if request.method == 'POST':
         
         strJson = (request.body).decode()
@@ -125,7 +125,7 @@ def signupUser(request):
             login(request,user)
             messages.success(request, ('Registration seccessful'))
 
-            return redirect('index')
+            return redirect('leaderboards')
         else:
             print(form.errors)
             return render(request, 'Signup.html', {'form': form})   
