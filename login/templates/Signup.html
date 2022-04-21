@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+        {% csrf_token %}
         <form id="signupForm" action="../signupuser/" method="post">
             <div class="form-content">
                 <div class="login-form">
@@ -79,6 +80,13 @@
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
                             <input type="password" name="password1" placeholder="Escribe tu contraseña" required>
+<<<<<<< HEAD
+=======
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password2" placeholder="Reescribe tu contraseña" required>
+>>>>>>> 56a5280e3e2d91c9b83cbb1ee06c937eabec74ce
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
