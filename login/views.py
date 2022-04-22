@@ -8,8 +8,9 @@ from login.models import User
 from .forms import RegisterUserForm
 
 
+
 @csrf_exempt
-def index(request):
+def loginUnity(request):
     if request.method == 'POST':
         
         strJson = (request.body).decode()
@@ -19,7 +20,7 @@ def index(request):
         existsDb = User.objects.filter(userId = jsonUser['userId'])
         
         if (user is not None and len(existsDb) > 0) and existsDb[0].getPassword() == jsonUser['password1'] and existsDb[0].getUsername() == jsonUser['username']:
-            #Success
+            #Success 
             print("Success in Consult")
             return JsonResponse(jsonUser)
         else:
