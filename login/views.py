@@ -10,11 +10,7 @@ from .forms import RegisterUserForm
 
 
 @csrf_exempt
-<<<<<<< HEAD
 def loginUnity(request):
-=======
-def indexBad(request):
->>>>>>> 004cb0446e7ca7097121b0923d5ba827e4bfbd85
     if request.method == 'POST':
         
         strJson = (request.body).decode()
