@@ -10,7 +10,11 @@ from .forms import RegisterUserForm
 
 
 @csrf_exempt
+<<<<<<< HEAD
 def loginUnity(request):
+=======
+def indexBad(request):
+>>>>>>> 004cb0446e7ca7097121b0923d5ba827e4bfbd85
     if request.method == 'POST':
         
         strJson = (request.body).decode()
@@ -101,9 +105,9 @@ def loginUser(request):
         else:
             messages.error(request, ('Bad login'))
             print("User does not exist")
-            return redirect('Login')   
+            return redirect('login')   
     else:
-        return render(request, 'login.html', {})
+        return render(request, 'Login.html', {})
 
 def logout_user(request):
     logout(request)
@@ -114,21 +118,21 @@ def logout_user(request):
 @csrf_exempt
 def signupUser(request):
     if request.method == 'POST':
-        print(request.POST)
+        #print(request.POST)
         form = RegisterUserForm(request.POST)
         #print(form)
+        #print(form.is_valid())
         if form.is_valid():
-            print("Is valid")
-            user = form.save()
-            user.refresh_from_db()  
-            # load the profile instance created by the signal
-            user.save()
-            raw_password = form.cleaned_data.get('password1')
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request,user)
+            messages.success(request, ('Registration seccessful'))
 
-            # login user after signing up
-            user = authenticate(username=user.username, password=raw_password)
-            login(request, user)
-
-            # redirect user to home page
-            return redirect('home')
-    return render(request, 'Signup.html')
+            return redirect('leaderboards')
+        else:
+            print(form.errors)
+            return render(request, 'Signup.html', {'form': form})   
+    else:
+        return render(request, 'Signup.html')   
