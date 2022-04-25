@@ -13,5 +13,6 @@ urlpatterns = [
     path('login/', views.loginUser, name = 'login'),
     path('signupuser/', views.signupUser, name = 'signup'),
     path('loginunity/', views.loginUnity, name = 'loginUnity'),
+    path('perfil/', views.perfil, name = 'perfil')
 
 ]

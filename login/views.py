@@ -132,3 +132,7 @@ def signupUser(request):
             return render(request, 'Signup.html', {'form': form})   
     else:
         return render(request, 'Signup.html')   
+
+@csrf_exempt
+def perfil(request):
+    return render(request, 'perfil.html')
