@@ -172,3 +172,6 @@ def signupUser(request):
 @csrf_exempt
 def perfil(request):
     return render(request, 'perfil.html')
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
