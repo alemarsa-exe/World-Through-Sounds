@@ -11,6 +11,7 @@ from .forms import RegisterUserForm
 
 @csrf_exempt
 def loginUnity(request):
+<<<<<<< HEAD
     if request.method == "POST":
         strJson = (request.body).decode()
         jsonUser = json.loads(strJson)
@@ -29,6 +30,8 @@ def loginUnity(request):
     else:
         return HttpResponse("Hello, world. You're at the login index.")
     '''
+=======
+>>>>>>> 32da23937d58a77322a933b281ad82ba89fb027f
     if request.method == 'POST':
         
         strJson = (request.body).decode()
@@ -133,7 +136,7 @@ def loginUser(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('leaderboards')
+            return redirect('perfil')
         else:
             messages.error(request, ('Bad login'))
             print("User does not exist")
@@ -168,3 +171,7 @@ def signupUser(request):
             return render(request, 'Signup.html', {'form': form})   
     else:
         return render(request, 'Signup.html')   
+
+@csrf_exempt
+def perfil(request):
+    return render(request, 'perfil.html')
