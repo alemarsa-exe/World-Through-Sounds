@@ -951,7 +951,7 @@ form .form-content .sign-up-text{
 /* Perfil // Dashboard */
 
 :root{
-    --color-primary: #7380ec;
+    --color-primary: #2ba3ad;
     --color-danger: #ff7782;
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
@@ -960,7 +960,7 @@ form .form-content .sign-up-text{
     --color-info-white: #dce1eb;
     --color-dark: #363949;
     --color-light: rgba(132, 139, 200, 0.18);
-    --color-primary-variant: #111e88;
+    --color-primary-variant: #237e86;
     --color-dark-variant: #677483;
     --color-background: #f6f6f9;
 
@@ -975,7 +975,7 @@ form .form-content .sign-up-text{
     --box-shadow: 0 2rem 3 rem var(--color-light);
 }
 
-.perfi{
+.perfil{
     margin: 0;
     padding: 0;
     outline: 0;
@@ -991,7 +991,7 @@ form .form-content .sign-up-text{
     height: 100vh;
     font-family: poppins, sans-serif;
     font-size: 0.88rem;
-    background: var(--color-background);
+    background: #ededee;
     user-select: none;
     overflow-x: hidden;
 }
@@ -1100,12 +1100,15 @@ aside .close{
 /* ============== SIDEBAR ================= */
 
 aside .sidebar{
-    background: white;
     display: flex;
     flex-direction: column;
     height: 86vh;
     position: relative;
     top: 3rem;
+}
+
+aside h3{
+    font-weight: 500;
 }
 
 aside .sidebar a {
@@ -1119,18 +1122,42 @@ aside .sidebar a {
     transition: all 300ms ease;
 }
 
-aside .sidebar a span{
+aside .sidebar a span {
     font-size: 1.6rem;
+    transition: all 300ms ease;
 }
 
-aside .sidebar a:last-child{
+aside .sidebar a:last-child {
     position: absolute;
     bottom: 2rem;
     width: 100%;
 }
 
-aside .sidebar a.active{
+aside .sidebar a.active {
     background: var(--color-light);
     color: var(--color-primary);
     margin-left: 0;
 }
+
+aside .sidebar a.active:before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a.active span{
+    color: var(--color-primary);
+    margin-left: calc(1rem - 6px);
+}
+
+aside .sidebar a:hover{
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+
+/* ============== MAIN ================= */
+
