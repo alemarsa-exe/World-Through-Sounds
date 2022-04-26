@@ -13,10 +13,7 @@ urlpatterns = [
     path('login/', views.loginUser, name = 'login'),
     path('signupuser/', views.signupUser, name = 'signup'),
     path('loginunity/', views.loginUnity, name = 'loginUnity'),
-<<<<<<< HEAD
     path('levelplayed/', views.levelPlayed, name = 'levelPlayed'),
-=======
     path('perfil/', views.perfil, name = 'perfil')
->>>>>>> 32da23937d58a77322a933b281ad82ba89fb027f
 
 ]

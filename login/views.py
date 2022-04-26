@@ -11,7 +11,6 @@ from .forms import RegisterUserForm
 
 @csrf_exempt
 def loginUnity(request):
-<<<<<<< HEAD
     if request.method == "POST":
         strJson = (request.body).decode()
         jsonUser = json.loads(strJson)
@@ -30,8 +29,6 @@ def loginUnity(request):
     else:
         return HttpResponse("Hello, world. You're at the login index.")
     '''
-=======
->>>>>>> 32da23937d58a77322a933b281ad82ba89fb027f
     if request.method == 'POST':
         
         strJson = (request.body).decode()
