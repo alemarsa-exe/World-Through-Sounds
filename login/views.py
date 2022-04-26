@@ -4,17 +4,31 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from login.models import User
+from login.models import User, LevelPlayedScore
 from .forms import RegisterUserForm
 
 
 
 @csrf_exempt
-<<<<<<< HEAD
 def loginUnity(request):
-=======
-def indexBad(request):
->>>>>>> 004cb0446e7ca7097121b0923d5ba827e4bfbd85
+    if request.method == "POST":
+        strJson = (request.body).decode()
+        jsonUser = json.loads(strJson)
+        username = jsonUser['username']
+        password = jsonUser['password1']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            print("Success in Consult")
+            jsonUser = {"userId":user.id,"role":user.is_superuser,"username":user.username,"pswd":""}
+            return JsonResponse(jsonUser)
+        else:
+            print("NOT Success in Consult")
+            jsonUser = {"userId":0,"role":"","username":"Error","pswd":""}
+            return JsonResponse(jsonUser) 
+    else:
+        return HttpResponse("Hello, world. You're at the login index.")
+    '''
     if request.method == 'POST':
         
         strJson = (request.body).decode()
@@ -35,6 +49,7 @@ def indexBad(request):
         
     else:
         return HttpResponse("Hello, world. You're at the login index.")
+    '''
 
 
 @csrf_exempt
@@ -76,6 +91,23 @@ def change(request):
             
     else:
         return HttpResponse("Hello, world. You're at the Change index.")
+
+@csrf_exempt
+def levelPlayed(request):
+    if request.method == 'POST':   
+        strJson = (request.body).decode()
+        jsonInfo = json.loads(strJson)
+        levelPlayed = LevelPlayedScore(userId=jsonInfo['userId'], level = jsonInfo['level'], score = jsonInfo['score'], lives = jsonInfo['lives'], duration = jsonInfo['duration'])
+
+        if levelPlayed is not None:
+            print("Success in Level Info")
+            levelPlayed.save()
+            return JsonResponse(jsonInfo)
+        else:
+            print("No Success in Level Info")
+            return JsonResponse(jsonInfo)
+    else:
+        return HttpResponse("Hello, world. You're at the levelPlayed index.")
 
 @csrf_exempt
 def contacto(request):

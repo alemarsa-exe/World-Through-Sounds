@@ -1,6 +1,8 @@
+from django.utils import timezone
 from django.db import models
 import hashlib
 from django.db.models.signals import post_init
+import pytz
 
 
 class User(models.Model):
@@ -20,15 +22,16 @@ class User(models.Model):
     def getUsername(self):
         return self.username
 
+class LevelPlayedScore(models.Model):
+    userId = models.IntegerField()
+    level = models.IntegerField()
+    score = models.IntegerField()
+    lives = models.IntegerField()
+    duration = models.IntegerField()
+    date = models.DateTimeField(auto_now_add = True)
 
 
-#def extraInitForMyModel(sender, **kwargs): 
-    #user = kwargs['instance']
-    #password = user.password
-    #encodedStr = password.encode()
-    #user.password = hashlib.md5(encodedStr).hexdigest()
 
-#post_init.connect(extraInitForMyModel, sender=User)   
 
 
     
