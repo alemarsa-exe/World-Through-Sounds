@@ -14,7 +14,7 @@ urlpatterns = [
     path('signupuser/', views.signupUser, name = 'signup'),
     path('loginunity/', views.loginUnity, name = 'loginUnity'),
     path('levelplayed/', views.levelPlayed, name = 'levelPlayed'),
-    path('perfil/', views.perfil, name = 'perfil'),
-    path('dash/', views.dashboard, name = 'dashboard'),
+    path('dashboard/', views.dashboard, name = 'dashboard'),
+    path('dashboard/profile', views.profile, name = "profile")
 
 ]

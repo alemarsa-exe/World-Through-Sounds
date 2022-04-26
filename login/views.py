@@ -175,3 +175,6 @@ def perfil(request):
 
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+def profile(request):
+    return render(request, 'user.html')
