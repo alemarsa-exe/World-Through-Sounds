@@ -1072,11 +1072,65 @@ small{
 
 aside{
    height: 100vh;
-   background: gray; 
+   /*background: gray; */ 
 }
 
 aside .top{
     background: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .sideLogo{
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .sideLogo img{
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+aside .close{
+    display: none;
+}
+
+/* ============== SIDEBAR ================= */
+
+aside .sidebar{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span{
+    font-size: 1.6rem;
+}
+
+aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active{
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
 }

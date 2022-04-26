@@ -97,7 +97,7 @@ def loginUser(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('leaderboards')
+            return redirect('perfil')
         else:
             messages.error(request, ('Bad login'))
             print("User does not exist")
