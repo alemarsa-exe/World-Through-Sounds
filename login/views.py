@@ -133,7 +133,7 @@ def loginUser(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('perfil')
+            return redirect('dashboard')
         else:
             messages.error(request, ('Bad login'))
             print("User does not exist")
@@ -144,7 +144,7 @@ def loginUser(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ('Logged out'))
-    return redirect('Login')
+    return redirect('index')
     
 
 @csrf_exempt
@@ -170,11 +170,11 @@ def signupUser(request):
         return render(request, 'Signup.html')   
 
 @csrf_exempt
-def perfil(request):
-    return render(request, 'perfil.html')
-
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    if request.user.is_authenticated:
+        return render(request, 'dashboard.html')
+    else:
+        return redirect('login')
 
 def profile(request):
     return render(request, 'user.html')

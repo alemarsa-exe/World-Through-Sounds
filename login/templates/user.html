@@ -19,6 +19,9 @@
   <link href="{% static 'assets/css/paper-dashboard.css' %}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{% static 'assets/demo/demo.css' %}" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+
 </head>
 
 <body class="">
@@ -41,21 +44,23 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="../dashboard">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="active ">
-            <a href="./user.html">
+            <a href="../dashboard/profile">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
           </li>
           <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="nc-icon nc-spaceship"></i>
-              <p>Upgrade to PRO</p>
+            <a href="{% url 'logout' %}">
+              <p>Logout</p>
+              <span class="material-icons-sharp">
+                logout
+                </span>
             </a>
           </li>
         </ul>
@@ -75,6 +80,10 @@
             </div>
             <a class="navbar-brand" href="javascript:;">Paper Dashboard 2</a>
           </div>
+
+          <!---NAVBAR que no uso -->
+
+          <!--
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -122,7 +131,7 @@
                 </a>
               </li>
             </ul>
-          </div>
+          </div>-->
         </div>
       </nav>
       <!-- End Navbar -->

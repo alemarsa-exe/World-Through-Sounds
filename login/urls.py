@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.contrib import admin
 from django.urls import path
 from . import views
@@ -15,6 +16,7 @@ urlpatterns = [
     path('loginunity/', views.loginUnity, name = 'loginUnity'),
     path('levelplayed/', views.levelPlayed, name = 'levelPlayed'),
     path('dashboard/', views.dashboard, name = 'dashboard'),
-    path('dashboard/profile', views.profile, name = "profile")
+    path('dashboard/profile', views.profile, name = "profile"),
+    path('logout/', views.logout_user, name="logout"),
 
 ]
