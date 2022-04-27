@@ -28,7 +28,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
+    <div class="sidebar" data-color="white" data-active-color="danger" style="overflow-x:hidden">
       <div class="logo">
         <a href="../index" class="simple-text logo-mini">
           <div class="logo-image-small">
@@ -91,22 +91,18 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-globe text-warning"></i>
+                      <span class="material-icons-sharp text-warning" style="font-size:50px;
+                      padding-left: 10px">
+                        schedule
+                        </span>
                     </div>
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Capacity</p>
-                      <p class="card-title">150GB<p>
+                      <p class="card-category">Time played</p>
+                      <p class="card-title">75 min<p>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update Now
                 </div>
               </div>
             </div>
@@ -117,22 +113,18 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-money-coins text-success"></i>
+                      <span class="material-icons-sharp text-success" style="font-size:50px;
+                      padding-left:10px">
+                        extension
+                        </span>
                     </div>
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Revenue</p>
-                      <p class="card-title">$ 1,345<p>
+                      <p class="card-category">Levels</p>
+                      <p class="card-title">3/3<p>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i>
-                  Last day
                 </div>
               </div>
             </div>
@@ -143,7 +135,11 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-vector text-danger"></i>
+                      <span class="material-icons-sharp text-danger" style="font-size:50px;
+                      padding-left:10px">
+                        warning
+                        </span>
+                        
                     </div>
                   </div>
                   <div class="col-7 col-md-8">
@@ -154,13 +150,6 @@
                   </div>
                 </div>
               </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i>
-                  In the last hour
-                </div>
-              </div>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
@@ -169,22 +158,18 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-favourite-28 text-primary"></i>
+                      <span class="material-icons-sharp text-primary" style="font-size:50px;
+                      padding-left:10px">
+                        autorenew
+                        </span>
                     </div>
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Followers</p>
-                      <p class="card-title">+45K<p>
+                      <p class="card-category">Attemps</p>
+                      <p class="card-title">10<p>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update now
                 </div>
               </div>
             </div>
@@ -194,19 +179,14 @@
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header ">
-                <h5 class="card-title">Users Behavior</h5>
-                <p class="card-category">24 Hours performance</p>
+                <h5 class="card-title">Take your time...</h5>
+                <p class="card-category">See how much time you spent in a level</p>
               </div>
               <div class="card-body ">
                 <!--<canvas id=chartHours width="400" height="100"></canvas>-->
-                <div id="piechart"></div>
+                
+                <div id="barchart_material"></div>
               </div>  
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-history"></i> Updated 3 minutes ago
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -214,50 +194,28 @@
           <div class="col-md-4">
             <div class="card ">
               <div class="card-header ">
-                <h5 class="card-title">Email Statistics</h5>
-                <p class="card-category">Last Campaign Performance</p>
+                <h5 class="card-title">User Behaviour</h5>
+                <p class="card-category">24 Hours Performance</p>
               </div>
               <div class="card-body ">
-                <canvas id="chartEmail"></canvas>
-              </div>
-              <div class="card-footer ">
-                <div class="legend">
-                  <i class="fa fa-circle text-primary"></i> Opened
-                  <i class="fa fa-circle text-warning"></i> Read
-                  <i class="fa fa-circle text-danger"></i> Deleted
-                  <i class="fa fa-circle text-gray"></i> Unopened
-                </div>
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar"></i> Number of emails sent
-                </div>
+                <div id="piechart"></div>
               </div>
             </div>
           </div>
           <div class="col-md-8">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-title">NASDAQ: AAPL</h5>
-                <p class="card-category">Line Chart with Points</p>
+                <h5 class="card-title">Check your mistakes</h5>
+                <p class="card-category">Table with error ratio</p>
               </div>
               <div class="card-body">
-                <canvas id="speedChart" width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer">
-                <div class="chart-legend">
-                  <i class="fa fa-circle text-info"></i> Tesla Model S
-                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                </div>
-                <hr />
-                <div class="card-stats">
-                  <i class="fa fa-check"></i> Data information certified
-                </div>
+                <div id="chart_div_prueba"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer footer-black  footer-white ">
+      <footer class="footer footer-black  footer-white" >
         <div class="container-fluid">
           <div class="row">
             <nav class="footer-nav">
@@ -302,6 +260,33 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Level', 'Attemp 1', 'Attemp 2', 'Attempt 3'],
+        ['1', 11, 6, 8],
+        ['2', 4, 9, 7],
+        ['3', 8, 7, 15]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Time played per level'
+          },
+        bars: 'horizontal', // Required for Material Bar Charts.
+        'width':950,
+        'height':200,
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+  </script>
+
+  <script type="text/javascript">
     // Load google charts
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -319,7 +304,7 @@
     ]);
     
       // Optional; add a title and set the width and height of the chart
-      var options = {'title':'My Average Day', 'width':550, 'height':400};
+      var options = {'title':'My Average Day', 'width':300, 'height':300};
     
       // Display the chart inside the <div> element with id="piechart"
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -327,6 +312,32 @@
     }
     </script>
   
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        
+      var data = google.visualization.arrayToDataTable([
+        ['Level', 'Mistakes'],
+        [ 1,      4],
+        [ 2,      9],
+        [ 3,     10]
+      ]);
+      var options = {
+        title: 'Level vs Mistakes comparison',
+        hAxis: {title: 'Level', minValue: 0, maxValue: 3},
+        vAxis: {title: 'Mistakes', minValue: 0, maxValue: 15},
+        legend: 'none'
+      };
+      
+
+      var chart = new google.visualization.ScatterChart(document.getElementById('chart_div_prueba'));
+
+      chart.draw(data, options);
+      }
+  </script>
+
 
 </body>
 
