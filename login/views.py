@@ -7,6 +7,7 @@ from django.contrib import messages
 from login.models import User, LevelPlayedScore, TopUserScores
 from .forms import RegisterUserForm
 from django.contrib.auth.models import User
+from django.forms.models import model_to_dict
 
 
 from django.contrib.auth import logout as auth_logout, get_user_model
@@ -251,3 +252,21 @@ def topScores(request):
             return JsonResponse(jsonUser)
     else:
         return HttpResponse('TopScoreViews')
+
+@csrf_exempt
+def getTopScore(request): 
+    if request.method=="POST":
+        strJson = (request.body).decode()
+        jsonInfo = json.loads(strJson)
+
+        topScores = TopUserScores()
+        try:
+            topScores = TopUserScores.objects.get(userId=jsonInfo['userId'])
+        except topScores.DoesNotExist:
+            print("User Does Not exist yet")
+        
+        jsonObj = model_to_dict(topScores)
+        print(jsonObj)
+        return JsonResponse(jsonObj)
+    return HttpResponse("getTopScores")
+        

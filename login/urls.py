@@ -21,6 +21,7 @@ urlpatterns = [
     path('logout/', views.logout_user, name="logout"),
     path('dashboard/exit/', views.remove_account, name="exit"),
     path('topscores/', views.topScores, name="topScores"),
+    path('gettopscores/', views.getTopScore, name="getTopScore"),
     #path(r'^panel/del/?P<pk>\d+)/$', views.delete, name="delete"),
 
 ]
