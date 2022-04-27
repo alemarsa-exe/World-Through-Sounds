@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from login.models import User, LevelPlayedScore
+from login.models import User, LevelPlayedScore, TopUserScores
 from .forms import RegisterUserForm
 from django.contrib.auth.models import User
 
@@ -224,4 +224,30 @@ def remove_account(request):
         # return HTTP response
         return HttpResponse('Se ha eliminado la cuenta')
     else:
-        return HttpResponse('No hiciste nada') 
+        return HttpResponse('No hiciste nada')
+
+@csrf_exempt
+def topScores(request): 
+    if request.method=="POST":
+        strJson = (request.body).decode()
+        jsonInfo = json.loads(strJson)
+        
+        newTopScores = TopUserScores(userId=jsonInfo['userId'],scoreLevel1=jsonInfo['scoreLevel1'],scoreLevel2=jsonInfo['scoreLevel2'],scoreLevel3=jsonInfo['scoreLevel3'],scoreLevel4=jsonInfo['scoreLevel4'])
+        topScores = TopUserScores()
+        try:
+            topScores = TopUserScores.objects.get(userId=jsonInfo['userId'])
+            topScores.delete()
+        except topScores.DoesNotExist:
+            pass
+
+        if newTopScores is not None:
+            newTopScores.save()
+            print("Succes in TopScores")
+
+            return JsonResponse(jsonInfo)
+        else:
+            print("Not Succes in TopScores")
+            jsonUser = {"userId":0,"role":"","name":"Error","pswd":""}
+            return JsonResponse(jsonUser)
+    else:
+        return HttpResponse('TopScoreViews')

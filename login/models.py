@@ -30,6 +30,14 @@ class LevelPlayedScore(models.Model):
     duration = models.IntegerField()
     date = models.DateTimeField(auto_now_add = True)
 
+class TopUserScores(models.Model):
+    userId = models.IntegerField(primary_key=True)
+    scoreLevel1 = models.IntegerField()
+    scoreLevel2 = models.IntegerField()
+    scoreLevel3 = models.IntegerField()
+    scoreLevel4 = models.IntegerField()
+
+
 
 
 
