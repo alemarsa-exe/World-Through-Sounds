@@ -6,6 +6,12 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from login.models import User, LevelPlayedScore
 from .forms import RegisterUserForm
+from django.contrib.auth.models import User
+
+
+from django.contrib.auth import logout as auth_logout, get_user_model
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
 
 
 
@@ -178,3 +184,42 @@ def dashboard(request):
 
 def profile(request):
     return render(request, 'user.html')
+
+'''
+def delete(request):  
+    
+    HttpResponse('Eliminado con éxito')  
+    try:
+        u = User.objects.get(username = username)
+        u.delete()
+        HttpResponse('Eliminado con éxito')
+        messages.success(request, "The user is deleted")            
+
+    except User.DoesNotExist:
+        messages.error(request, "User doesnot exist")    
+        return render(request, 'leaderboards.html')
+
+    return render(request, 'index.html') 
+
+    current_user = request.user
+    HttpResponse('Eliminado con éxito')
+    if request.user.is_authenticated:
+        current_user.objects.get(username=current_user, is_superuser=True).delete()
+        return HttpResponse('Eliminado con éxito')
+    else:
+        return HttpResponse('Process invalid')
+    '''
+
+@login_required
+#@require_http_method(['POST'])
+def remove_account(request):
+    if request.method=="POST":
+        user_pk = request.user.pk
+        auth_logout(request)
+        User = get_user_model()
+        User.objects.filter(pk=user_pk).delete()
+        # …
+        # return HTTP response
+        return HttpResponse('Se ha eliminado la cuenta')
+    else:
+        return HttpResponse('No hiciste nada')
