@@ -183,6 +183,7 @@ def dashboard(request):
         return redirect('login')
 
 def profile(request):
+        
     return render(request, 'user.html')
 
 '''
@@ -210,9 +211,10 @@ def delete(request):
         return HttpResponse('Process invalid')
     '''
 
-@login_required
+#@login_required
 #@require_http_method(['POST'])
 def remove_account(request):
+    #HttpResponse('Hola')
     if request.method=="POST":
         user_pk = request.user.pk
         auth_logout(request)
@@ -222,4 +224,4 @@ def remove_account(request):
         # return HTTP response
         return HttpResponse('Se ha eliminado la cuenta')
     else:
-        return HttpResponse('No hiciste nada')
+        return HttpResponse('No hiciste nada') 

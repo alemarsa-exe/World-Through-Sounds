@@ -19,7 +19,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name = 'dashboard'),
     path('dashboard/profile', views.profile, name = "profile"),
     path('logout/', views.logout_user, name="logout"),
-    path('exit/', views.remove_account, name="exit"),
+    path('dashboard/exit/', views.remove_account, name="exit"),
     #path(r'^panel/del/?P<pk>\d+)/$', views.delete, name="delete"),
 
 ]
