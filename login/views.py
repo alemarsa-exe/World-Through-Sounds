@@ -179,7 +179,7 @@ def signupUser(request):
 @csrf_exempt
 def dashboard(request):
     if request.user.is_authenticated:
-        return render(request, 'dashboard.html')
+        return render(request, 'dashboard2.0.html')
     else:
         return redirect('login')
 
@@ -187,35 +187,10 @@ def profile(request):
         
     return render(request, 'user.html')
 
-'''
-def delete(request):  
-    
-    HttpResponse('Eliminado con éxito')  
-    try:
-        u = User.objects.get(username = username)
-        u.delete()
-        HttpResponse('Eliminado con éxito')
-        messages.success(request, "The user is deleted")            
-
-    except User.DoesNotExist:
-        messages.error(request, "User doesnot exist")    
-        return render(request, 'leaderboards.html')
-
-    return render(request, 'index.html') 
-
-    current_user = request.user
-    HttpResponse('Eliminado con éxito')
-    if request.user.is_authenticated:
-        current_user.objects.get(username=current_user, is_superuser=True).delete()
-        return HttpResponse('Eliminado con éxito')
-    else:
-        return HttpResponse('Process invalid')
-    '''
-
-#@login_required
+@login_required
 #@require_http_method(['POST'])
+#@csrf_exempt
 def remove_account(request):
-    #HttpResponse('Hola')
     if request.method=="POST":
         user_pk = request.user.pk
         auth_logout(request)
@@ -225,7 +200,7 @@ def remove_account(request):
         # return HTTP response
         return HttpResponse('Se ha eliminado la cuenta')
     else:
-        return HttpResponse('No hiciste nada')
+        return HttpResponse('No hiciste nada') 
 
 @csrf_exempt
 def topScores(request): 
