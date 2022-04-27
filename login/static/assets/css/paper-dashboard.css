@@ -3927,6 +3927,15 @@ License - nucleoapp.com/license/
     animation: bottombar-back 500ms 0s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
+
+
+
+  .profile-row{
+    justify-content: center;
+  }
+
+
+  
   .toggled .bar1 {
     top: 6px;
     -webkit-animation: topbar-x 500ms linear 0s;
