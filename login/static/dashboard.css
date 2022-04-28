@@ -98,6 +98,26 @@
     width: 100%;
   }
   
+.user-form{
+    background-color: #e4e4e6ba;
+}
+
+.user-title{
+    background-color: whitesmoke;
+    border-style: double;
+    box-sizing: border-box;
+    margin-left: initial;
+}
+
+.btn-changes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.real-btn{
+    margin-bottom: 10px;
+}
+
   @media (min-width: 768px) {
     #sidebar-wrapper {
       margin-left: 0;
