@@ -2,7 +2,6 @@ from django.utils import timezone
 from django.db import models
 import hashlib
 from django.db.models.signals import post_init
-import pytz
 
 
 class User(models.Model):
