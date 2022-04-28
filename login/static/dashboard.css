@@ -87,6 +87,16 @@
     font-weight: bold;
     border: none;
   }
+
+  .bottom{
+      margin-top: inherit;
+  }
+
+  .logout-btn{
+    position: fixed;
+    bottom: 2rem;
+    width: 100%;
+  }
   
   @media (min-width: 768px) {
     #sidebar-wrapper {
