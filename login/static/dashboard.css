@@ -1,12 +1,16 @@
 :root {
-    --main-bg-color: #009d63;
-    --main-text-color: #009d63;
+    --main-bg-color: #364996;
+    --main-text-color: #2ba3ad;
     --second-text-color: #bbbec5;
     --second-bg-color: #a1d4d8;
   }
   
   .primary-text {
     color: var(--main-text-color);
+  }
+
+  .primary-text-dark{
+      color: var(--main-bg-color);
   }
   
   .second-text {
@@ -79,7 +83,7 @@
   
   .list-group-item.active {
     background-color: transparent;
-    color: var(--main-text-color);
+    color: var(--main-bg-color);
     font-weight: bold;
     border: none;
   }

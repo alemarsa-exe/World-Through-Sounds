@@ -35,29 +35,6 @@ def loginUnity(request):
             return JsonResponse(jsonUser) 
     else:
         return HttpResponse("Hello, world. You're at the login index.")
-    '''
-    if request.method == 'POST':
-        
-        strJson = (request.body).decode()
-        print(strJson)
-        jsonUser = json.loads(strJson)
-        user = User(userId=jsonUser['userId'], role = jsonUser['role'], username=jsonUser['username'], password = jsonUser['password1'])
-        existsDb = User.objects.filter(userId = jsonUser['userId'])
-        
-        if (user is not None and len(existsDb) > 0) and existsDb[0].getPassword() == jsonUser['password1'] and existsDb[0].getUsername() == jsonUser['username']:
-            #Success 
-            print("Success in Consult")
-            return JsonResponse(jsonUser)
-        else:
-            #Bad login
-            print("NOT Success in Consult")
-            jsonUser = {"userId":0,"role":"","username":"Error","pswd":""}
-            return JsonResponse(jsonUser)
-        
-    else:
-        return HttpResponse("Hello, world. You're at the login index.")
-    '''
-
 
 @csrf_exempt
 def signUp(request):
@@ -169,7 +146,7 @@ def signupUser(request):
             login(request,user)
             messages.success(request, ('Registration seccessful'))
 
-            return redirect('leaderboards')
+            return redirect('dashboard')
         else:
             print(form.errors)
             return render(request, 'Signup.html', {'form': form})   
@@ -184,12 +161,12 @@ def dashboard(request):
         return redirect('login')
 
 def profile(request):
-        
-    return render(request, 'user.html')
+    if request.user.is_authenticated:
+        return render(request, 'perfil.html')
+    else:
+        return redirect('login')
 
 @login_required
-#@require_http_method(['POST'])
-#@csrf_exempt
 def remove_account(request):
     if request.method=="POST":
         user_pk = request.user.pk
@@ -198,9 +175,10 @@ def remove_account(request):
         User.objects.filter(pk=user_pk).delete()
         # …
         # return HTTP response
-        return HttpResponse('Se ha eliminado la cuenta')
+        print("Se ha eliminado la cuenta")
+        return redirect('login')
     else:
-        return HttpResponse('No hiciste nada') 
+        return HttpResponse('No hiciste nada')
 
 @csrf_exempt
 def topScores(request): 
