@@ -74,11 +74,11 @@
                     <form class="row g-3">
                         <div class="col-md-6">
                           <label for="inputPassword4" class="form-label">Username</label>
-                          <input type="text" class="form-control" id="inputPassword4" value="{{user.username}}">
+                          <input disabled type="text" class="form-control" id="inputPassword4" value="{{user.username}}">
                         </div>
                         <div class="col-md-6">
                           <label for="inputEmail4" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="inputEmail4" value="{{user.email}}">
+                          <input disabled type="email" class="form-control" id="inputEmail4" value="{{user.email}}">
                         </div>
 
                         <!------
@@ -114,12 +114,12 @@
                           </div>
                         </div>
                         ------->
-                        <div class="col-12 btn-changes">
-                            <button type="submit" class="btn btn-primary real-btn">Guardar cambios</button>
+                        <div class="col-12 btn-changes d-flex justify-content-end">
+                            
                     </form>
                     <form id="exitForm" action="{% url 'exit' %}" method="post">
                         {% csrf_token %}
-                        <input type="submit" class="btn btn-danger btn-round" value="Delete Profile"></input>
+                        <input type="submit" class="btn btn-danger btn-round mb-3 " value="Delete Profile"></input>
                     </form>
                         </div>
                 </div>

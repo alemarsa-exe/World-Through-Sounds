@@ -22,6 +22,7 @@ urlpatterns = [
     path('dashboard/exit/', views.remove_account, name="exit"),
     path('topscores/', views.topScores, name="topScores"),
     path('gettopscores/', views.getTopScore, name="getTopScore"),
-    #path(r'^panel/del/?P<pk>\d+)/$', views.delete, name="delete"),
+    path('api/', views.api, name="api"),
+    path('api/json/', views.jsonDoc, name="jsonDoc")
 
 ]

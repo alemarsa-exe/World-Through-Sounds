@@ -222,4 +222,9 @@ def getTopScore(request):
         print(jsonObj)
         return JsonResponse(jsonObj)
     return HttpResponse("getTopScores")
-        
+
+def api(request):
+    return render(request, 'api.html')  
+
+def jsonDoc(request):
+    return render(request, 'jsonDoc.html')   
