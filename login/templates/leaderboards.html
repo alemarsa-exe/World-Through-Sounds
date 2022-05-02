@@ -61,11 +61,6 @@
 
       function drawTable() {
         var data = new google.visualization.DataTable();
-        data.addColumn("string", "UserID");
-        data.addColumn("string", "Level one");
-        data.addColumn("string", "Level two");
-        data.addColumn("string", "Level three");
-        data.addColumn("string", "Level four");
         data.addRows({{leader | safe}});
 
         var table = new google.visualization.Table(
