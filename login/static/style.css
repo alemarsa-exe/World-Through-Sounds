@@ -124,6 +124,24 @@ nav img{
     border: 1px solid #2ba3ad;
     background-color: #2ba3ad;
     transition: 0.3s;
+}
+
+.descarga-inline-rojo{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.descarga-inline-rojo:hover{
+    border: 1px solid #ad382b;
+    background-color: #ad382b;
+    transition: 0.3s;
 
 }
 
