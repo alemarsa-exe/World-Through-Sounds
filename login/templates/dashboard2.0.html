@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="{% static 'dashboard.css' %}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/DrumLogoBlanco.png' %}" />
 
     <title>Dashboard</title>
 </head>
@@ -71,7 +73,7 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">75 min</h3>
+                                <h3 class="fs-2">{{ sumas.minutesPlayed }}</h3>
                                 <p class="fs-5">Time played</p>
                             </div>
                             <i class="fas fa-clock fs-1 primary-text-dark border rounded-full secondary-bg p-3"></i>
@@ -81,8 +83,8 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">10</h3>
-                                <p class="fs-5">Attemps</p>
+                                <h3 class="fs-2">{{ sumas.livesPlayed }}</h3>
+                                <p class="fs-5">Lives</p>
                             </div>
                             <i
                                 class="fas fa-sync fs-1 primary-text-dark border rounded-full secondary-bg p-3"></i>
@@ -92,8 +94,8 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">23</h3>
-                                <p class="fs-5">Errors</p>
+                                <h3 class="fs-2">{{ sumas.scorePlayed }}</h3>
+                                <p class="fs-5">Total score</p>
                             </div>
                             <i class="fas fa-bomb fs-1 primary-text-dark border rounded-full secondary-bg p-3"></i>
                         </div>
@@ -102,7 +104,7 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">3/4</h3>
+                                <h3 class="fs-2">4/4</h3>
                                 <p class="fs-5">Levels</p>
                             </div>
                             <i class="fas fa-puzzle-piece fs-1 primary-text-dark border rounded-full secondary-bg p-3"></i>
@@ -130,22 +132,24 @@
                     </div>
 
                     <div class="row bottom">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                           <div class="card ">
                             <div class="card-header ">
-                              <h5 class="card-title">User Behaviour</h5>
-                              <p class="card-category">24 Hours Performance</p>
+                              <h5 class="card-title">You got a life?</h5>
+                              <p class="card-category">Check how many lives you had at the end of a level</p>
                             </div>
                             <div class="card-body ">
                               <div id="piechart"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-8">
+                    </div>
+                    <div class="row bottom">
+                        <div class="col-md-12">
                           <div class="card card-chart">
                             <div class="card-header">
-                              <h5 class="card-title">Check your mistakes</h5>
-                              <p class="card-category">Table with error ratio</p>
+                              <h5 class="card-title">Hey, you did it</h5>
+                              <p class="card-category">Not everything is bad, at least you have some points</p>
                             </div>
                             <div class="card-body">
                               <div id="chart_div_prueba"></div>
@@ -266,12 +270,7 @@
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Level', 'Attemp 1', 'Attemp 2', 'Attempt 3'],
-      ['1', 11, 6, 8],
-      ['2', 4, 9, 7],
-      ['3', 8, 7, 15]
-    ]);
+    var data = google.visualization.arrayToDataTable({{datos | safe}});
 
     var options = {
       chart: {
@@ -279,7 +278,7 @@
         },
       bars: 'horizontal', // Required for Material Bar Charts.
       'width':950,
-      'height':200,
+      'height':400,
     };
 
     var chart = new google.charts.Bar(document.getElementById('barchart_material'));
@@ -295,23 +294,23 @@
   
   // Draw the chart and set the chart values
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-    ['Task', 'Hours per Day'],
-    ['Work', 8],
-    ['Friends', 2],
-    ['Eat', 2],
-    ['TV', 2],
-    ['Gym', 2],
-    ['Sleep', 8]
-  ]);
-  
-    // Optional; add a title and set the width and height of the chart
-    var options = {'title':'My Average Day', 'width':300, 'height':300};
-  
-    // Display the chart inside the <div> element with id="piechart"
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    chart.draw(data, options);
-  }
+    var data = google.visualization.arrayToDataTable({{errores | safe}} );
+
+    var options = {
+    chart: {
+        title: 'Lives remaining per level'
+        },
+    bars: 'vertical', // Required for Material Bar Charts.
+    'width':600,
+    'height':300,
+    vAxis: {title: 'Level'},
+    hAxis: {title: 'Lives'},
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('piechart'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
   </script>
 
 <script type="text/javascript">
@@ -320,16 +319,13 @@
 
   function drawChart() {
       
-    var data = google.visualization.arrayToDataTable([
-      ['Level', 'Mistakes'],
-      [ 1,      4],
-      [ 2,      9],
-      [ 3,     10]
-    ]);
+    var data = google.visualization.arrayToDataTable({{ puntaje | safe }});
     var options = {
-      title: 'Level vs Mistakes comparison',
+      'width':850,
+      'height':300,
+      title: 'Level vs Score',
       hAxis: {title: 'Level', minValue: 0, maxValue: 3},
-      vAxis: {title: 'Mistakes', minValue: 0, maxValue: 15},
+      vAxis: {title: 'Max score', minValue: 0, maxValue: 15},
       legend: 'none'
     };
     
@@ -339,7 +335,6 @@
     chart.draw(data, options);
     }
 </script>
-
 
 
 </body>

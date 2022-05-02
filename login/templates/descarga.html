@@ -17,6 +17,13 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <title>Drum Game</title>
+
+    <!-- Favicon-->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/DrumLogoBlanco.png' %}"
+    />
   </head>
   <body>
     <!---Header-->
@@ -47,7 +54,12 @@
         <p class="textoLanding-mobile">
           Click the button to start downloading the game
         </p>
-        <a href="" class="descarga-inline">Download</a>
+        <a
+          href="{% static 'contents.zip' %}"
+          download="DrumGame.zip"
+          class="descarga-inline"
+          >Download</a
+        >
       </div>
     </section>
   </body>
