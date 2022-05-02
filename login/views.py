@@ -177,7 +177,7 @@ def dashboard(request):
         curr = dataBase.cursor()
         query1 = '''SELECT level, duration FROM login_levelplayedscore WHERE userId=1'''
         rows1 = curr.execute(query1)
-        data = [['Nivel', 'Tiempo']]
+        data = [['Level', 'Time']]
         for x in rows1:
             data.append([ x[0], x[1]])
         #print(data)
@@ -185,14 +185,14 @@ def dashboard(request):
         
         query2 = '''SELECT level, lives FROM login_levelplayedscore WHERE userId=1'''
         rows2 = curr.execute(query2)
-        errores = [['Nivel', 'Vidas']]
+        errores = [['Level', 'Lives']]
         for x in rows2:
             errores.append([ x[0], x[1]])
         
         
         query3 = '''SELECT level, score FROM login_levelplayedscore WHERE userId=1'''
         rows3 = curr.execute(query3)
-        puntaje = [['Nivel', 'Puntaje']]
+        puntaje = [['Level', 'Score']]
         for x in rows3:
             puntaje.append([ x[0], x[1]])
         
