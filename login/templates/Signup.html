@@ -29,14 +29,12 @@
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
-            <li><a href="../descarga">DESCARGA</a></li>
+            <li><a href="../descarga">DOWNLOAD</a></li>
             <li><a href="../leaderboards">LEADERBOARD</a></li>
             <li>
-              <a href="https://daniumm.github.io/" target="_blank"
-                >NUESTRA API</a
-              >
+              <a href="../api">OUR API</a>
             </li>
-            <li><a href="../contacto">CONTACTO</a></li>
+            <li><a href="../contacto">CONTACT</a></li>
           </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -52,8 +50,8 @@
               alt="drummer"
             />
             <div class="text">
-              <span class="text-1">Empieza tu viaje ahora mismo</span>
-              <span class="text-2">Registrate ahora</span>
+              <span class="text-1">Start your journey right now</span>
+              <span class="text-2">Register now</span>
             </div>
           </div>
         </div>
@@ -65,7 +63,7 @@
             <!--Signup-->
             {% csrf_token %}
             <div class="signup-form">
-              <div class="title">Registrarse</div>
+              <div class="title">Register</div>
               {% if form.errors %}
               <div>{{ form.errors }}</div>
               {% endif %}
@@ -75,7 +73,7 @@
                   <input
                     type="text"
                     name="username"
-                    placeholder="Escribe tu usuario"
+                    placeholder="Enter your username"
                     required
                   />
                 </div>
@@ -84,7 +82,7 @@
                   <input
                     type="text"
                     name="email"
-                    placeholder="Escribe tu email"
+                    placeholder="Enter your email"
                     required
                   />
                 </div>
@@ -95,7 +93,7 @@
                   <input
                     type="password"
                     name="password1"
-                    placeholder="Escribe tu contraseña"
+                    placeholder="Enter your password"
                     required
                   />
                 </div>
@@ -104,16 +102,16 @@
                   <input
                     type="password"
                     name="password2"
-                    placeholder="Confirma tu contraseña"
+                    placeholder="Confirm your password"
                     required
                   />
                 </div>
 
                 <div class="button input-box">
-                  <input type="submit" value="Registrarse" />
+                  <input type="submit" value="Register" />
                 </div>
                 <div class="text sign-up-text">
-                  ¿Ya estás registrado? <a href="../login">Inicia sesión</a>
+                  Already have an account? <a href="../login">Log in</a>
                 </div>
               </div>
             </div>

@@ -2,112 +2,76 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;1,100;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;1,100;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <title>Log in</title>
-</head>
+  </head>
 
-<body class="body-leader">
-
+  <body class="body-leader">
     <section class="sub-header-sesion leader">
-        <nav>
-            <a href="../index">  <img src="{% static 'images/DrumLogoBlanco.png' %}" alt="drum-logo"> </a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i> 
-                <ul>
-                    <li><a href="../descarga">DESCARGA</a></li>
-                    <li><a href="../login">INICIAR SESIÓN</a></li>
-                    <li><a href="https://daniumm.github.io/" target="_blank">NUESTRA API</a></li>
-                    <li><a href="../contacto">CONTACTO</a></li>
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
+      <nav>
+        <a href="../index">
+          <img src="{% static 'images/DrumLogoBlanco.png' %}" alt="drum-logo" />
+        </a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="../descarga">DOWNLOAD</a></li>
+            <li><a href="../login">SIGN IN</a></li>
+            <li><a href="../api">OUR API</a></li>
+            <li><a href="../contacto">CONTACT</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
     </section>
 
     <div class="rankings">
-        <h1>Conoce a los mejores del juego</h1> 
-        <table class="content-table">
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Usuario</th>
-                <th>Puntos</th>
-                <th>Minutos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Domenic87</td>
-                <td>110</td>
-                <td>3:12</td>
-              </tr>
-              <tr class="active-row">
-                <td>2</td>
-                <td>Sally</td>
-                <td>90</td>
-                <td>3:33</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>89</td>
-                <td>4:01</td>
-              </tr>
-            </tbody>
-          </table>
+      <h1>The best of the best</h1>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>User</th>
+            <th>Points</th>
+            <th>Minutes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Domenic87</td>
+            <td>110</td>
+            <td>3:12</td>
+          </tr>
+          <tr class="active-row">
+            <td>2</td>
+            <td>Sally</td>
+            <td>90</td>
+            <td>3:33</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Nick</td>
+            <td>89</td>
+            <td>4:01</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-</body>
+  </body>
 
-<br>
-
-<div class="row">
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="total-orders">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Total Orders</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title"></h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="orders-delivered">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Orders Delivered</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title"></h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" id="orders-pending">
-			  	<div class="card-header">
-			  		<h5 class="card-title">Orders Pending</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title"></h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
+  <br />
 </html>
