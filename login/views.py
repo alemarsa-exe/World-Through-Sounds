@@ -116,7 +116,7 @@ def leaderboards(request):
     leader = [['UserID', 'Level one', 'Level two', 'Level three', 'Level four']]
     for x in rows:
         leader.append([ x[0], x[1], x[2], x[3], x[4]])
-    print(leader)
+    #print(leader)
 
     return render(request, 'leaderboards.html', {'leader':leader})
     
